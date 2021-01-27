@@ -1,7 +1,6 @@
 require 'thor'
 require 'fileutils'
 require 'coppy'
-require 'coppy/runner'
 
 module Coppy
   class CLI < Thor

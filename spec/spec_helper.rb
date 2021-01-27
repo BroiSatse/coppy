@@ -1,6 +1,6 @@
 require "bundler/setup"
 require "coppy"
-require 'byebug'
+require 'pry-byebug'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,5 +1,5 @@
 require 'coppy/manifesto'
-require 'byebug'
+require 'coppy/name'
 
 module Coppy
   class Runner
@@ -12,7 +12,8 @@ module Coppy
       manifesto = load_manifesto
       env = Environment.new(
         source: source,
-        target: target
+        target: target,
+        app_name: Name.new(target.split(File::Separator).last)
       )
       manifesto.execute!(env)
     end

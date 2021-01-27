@@ -3,6 +3,10 @@ copy do
   ignore "ignored_folder"
 end
 
+in_files "file.rb" do
+  replace "TemplateClass", ->(env) { env.app_name.camelcase }
+end
+
 git do
   add_all
   commit {|env| "Created from template at #{env.source.remote}##{env.source.hash}"}
