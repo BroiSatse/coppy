@@ -2,3 +2,8 @@ copy do
   ignore "**/ignored.*"
   ignore "ignored_folder"
 end
+
+git do
+  add_all
+  commit {|env| "Created from template at #{env.source.remote}##{env.source.hash}"}
+end

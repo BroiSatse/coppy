@@ -30,4 +30,10 @@ RSpec.describe "coppy executable" do
   it "does not copy ignored folders" do
     expect(target.join('ignored_folder')).not_to exist
   end
+
+  it "initializes new git repository and commits changes" do
+    Dir.chdir(target) do
+      expect(`git log`).to include "Created from template"
+    end
+  end
 end
