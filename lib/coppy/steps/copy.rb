@@ -18,7 +18,11 @@ module Coppy
         @manifesto.execute!(copy_env)
 
         files = Dir.glob(File.join env.source, "**", "*")
-        ignored_files = copy_env.ignore.flat_map { |ignore| Dir.glob(File.join env.source, ignore) }
+        ignored_files = copy_env.ignore.flat_map do |ignore|
+          pattern = File.join env.source, ignore
+          pattern = File.join(pattern, "**", '*') if File.directory?(pattern)
+          Dir.glob(pattern)
+        end
 
         (files - ignored_files).each do |file|
           relative = file.sub(env.source, '')

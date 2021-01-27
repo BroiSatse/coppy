@@ -1,3 +1,4 @@
 copy do
-  ignore "ignored.*"
+  ignore "**/ignored.*"
+  ignore "ignored_folder"
 end
