@@ -1,0 +1,3 @@
+copy do
+  ignore "ignored.*"
+end

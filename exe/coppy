@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative '../lib/coppy/cli'
+
+ARGV.unshift(Coppy::CLI.default_task) unless Coppy::CLI.all_tasks.has_key?(ARGV[0])
+Coppy::CLI.start(ARGV)
